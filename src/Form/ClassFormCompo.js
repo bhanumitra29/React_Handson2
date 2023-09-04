@@ -18,6 +18,16 @@ export default class ClassFormCompo extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
+
+        if (!this.state.name || !this.state.department || !this.state.rating) {
+            alert("Please fill in all fields before submitting.");
+            return;
+          }
+          
+          if (parseInt(this.state.rating) < 1 || parseInt(this.state.rating) > 5) {
+            alert("The rating should be between 1 and 5.");
+            return;
+          }
         const temp = {
             name: this.state.name,
             department: this.state.department,
